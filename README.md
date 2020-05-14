@@ -12,7 +12,9 @@ Google Cloud services compatible with Cloud IAM?
 
 
 Can I use Cloud IAM policies to manage both authentication and authorization for my applications?
-or  Cloud IAM policies manage
+
+
+Cloud IAM policies manage
 
 
 
