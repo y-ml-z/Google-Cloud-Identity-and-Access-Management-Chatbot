@@ -1,0 +1,569 @@
+{
+  "intents": [
+    {
+      "intent": "BCM10",
+      "examples": [
+        {
+          "text": "How is a service account different from a user who uses Cloud IAM?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "BCM2",
+      "examples": [
+        {
+          "text": "why Cloud IAM"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "BCM3",
+      "examples": [
+        {
+          "text": "Google Cloud services compatible with Cloud IAM?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "BCM4",
+      "examples": [
+        {
+          "text": "Can I use Cloud IAM policies to manage both authentication and authorization for my applications?"
+        },
+        {
+          "text": "Cloud IAM policies manage"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "BCM5",
+      "examples": [
+        {
+          "text": "What identities can I assign Cloud IAM roles to?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "BCM6",
+      "examples": [
+        {
+          "text": "Can I use Cloud IAM to create and manage users?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "BCM7",
+      "examples": [
+        {
+          "text": "How do I disable user access to IAM Cloud resources?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "BCM8",
+      "examples": [
+        {
+          "text": "How can I audit my Cloud IAM policies?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "BCM9",
+      "examples": [
+        {
+          "text": "In which scenarios to use the role of actor of the service account?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "BMC1",
+      "examples": [
+        {
+          "text": "Cloud IAM"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "bye",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "bye",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "good bye",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "greeting",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "bjr",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "bonjour",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "good afternoon",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "good evening",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "good morning",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "hello",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "hey",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "hi",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "thank_you",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "merci",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "thank you",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "thx",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "t u",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_3_1579737473925",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "b4",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Use IAM to manage permission to access Google Cloud resources. To manage user authentication, continue to use your current management methods, such as LDAP service, Google groups, etc. With IAM, you can grant access to a Google account, service account, Google group, Cloud Identity, or G Suite domain."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#BCM4",
+      "dialog_node": "node_10_1579736380922",
+      "previous_sibling": "node_7_1579736275786"
+    },
+    {
+      "type": "standard",
+      "title": "b2",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Cloud IAM allows you to adopt the security principle of least privilege. So you only grant necessary access to your resources and prevent unwanted access to other resources. Cloud IAM makes it possible to comply with the compliance clauses concerning the separation of tasks."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "title": "",
+            "options": [],
+            "response_type": "option"
+          }
+        ]
+      },
+      "conditions": "#BCM2",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_1_1579736042696",
+      "previous_sibling": "node_3_1579735889651"
+    },
+    {
+      "type": "standard",
+      "title": "thx",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "You're welcome. Please let me know if you need anything else.\n"
+              },
+              {
+                "text": "My pleasure.\n"
+              },
+              {
+                "text": "No problem. Let me know if there is anything else I can help with."
+              },
+              {
+                "text": "I aim to please. 🙂"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "@thank_you",
+      "dialog_node": "node_1_1579737169548",
+      "previous_sibling": "node_9_1579737083109"
+    },
+    {
+      "type": "standard",
+      "title": "b5",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Cloud IAM allows granting access to the following types of identities:\n\nGoogle Account\nService account\nGoogle Group\nG Suite or Cloud Identity domain"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#BCM5",
+      "dialog_node": "node_2_1579736539748",
+      "previous_sibling": "node_10_1579736380922"
+    },
+    {
+      "type": "standard",
+      "title": "b10",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A service account is a special Google account that allows applications to access Google services programmatically. This account belongs to your application or to a virtual machine (VM) and not to a specific end user. It allows your application to call the Google API of a service without directly involving users."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#BCM10",
+      "dialog_node": "node_2_1579738953644",
+      "previous_sibling": "node_9_1579736800582"
+    },
+    {
+      "type": "standard",
+      "title": "b1",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Cloud IAM allows you to create and manage permissions for Google Cloud resources. This solution unifies access control for Google Cloud services within a dedicated system and presents a coherent set of operations. For an overview of the concepts, see the article IAM overview: https://cloud.google.com/iam/docs/overview"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#BMC1",
+      "dialog_node": "node_3_1579735889651",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "b6",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "No. You can use Cloud Identity or G Suite to create and manage users. You can also manage your users using your current methods, such as the LDAP service or Google Groups. If you use the LDAP service to manage your users, you must use Google Cloud Directory Sync to synchronize the data in your Google domain. Whichever way you manage your users, you should link them, preferably using Google Groups, to a role in an IAM policy to allow them access to resources."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#BCM6",
+      "dialog_node": "node_3_1579736626194",
+      "previous_sibling": "node_2_1579736539748"
+    },
+    {
+      "type": "standard",
+      "title": "b_ye",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Nice talking to you today.\n"
+              },
+              {
+                "text": "Have a nice day.\n"
+              },
+              {
+                "text": "Goodbye."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "@bye",
+      "dialog_node": "node_3_1579737473925",
+      "previous_sibling": "node_1_1579737169548"
+    },
+    {
+      "type": "standard",
+      "title": "b7",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "If you assigned the IAM role to the user through a Google group, you can remove the user from the group and the user will lose the access you gave them. If you have not used a group, you should review your policies to identify the access rights granted to the individual user, then remove them from the policy and update the policy. Using Google Groups to grant access is easier, as it will not be necessary to update all of your policies to revoke the access rights of an individual user. Find out more:       \nhttps://cloud.google.com/iam/docs/granting-changing-revoking-access"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#BCM7",
+      "dialog_node": "node_5_1579736689798",
+      "previous_sibling": "node_3_1579736626194"
+    },
+    {
+      "type": "standard",
+      "title": "b11",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "   https://developer.ibm.com/depmodels/hybrid/"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#BCM11",
+      "dialog_node": "node_6_1579739009136",
+      "previous_sibling": "node_2_1579738953644"
+    },
+    {
+      "type": "standard",
+      "title": "b3",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "All Google Cloud services use Cloud IAM to ensure that only authorized identities can access it. In addition, some services provide specific IAM roles or support granting access at the resource level. For more information on IAM compatibility, see the overview page: https://cloud.google.com/iam/docs/overview#cloud_iam_support_for_gcp_services"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#BCM3",
+      "dialog_node": "node_7_1579736275786",
+      "previous_sibling": "node_1_1579736042696"
+    },
+    {
+      "type": "standard",
+      "title": "b8",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "You can use the Cloud audit logs (https://cloud.google.com/logging/docs/audit) to regularly audit changes to the Cloud IAM policy. Depending on the type of audit log, they are kept for 30 days (data access logs:https://cloud.google.com/logging/docs/audit#data-access) or 400 days (administrative activity logs :https://cloud.google.com/logging/docs/audit#admin-activity  and system event logs: https://cloud.google.com/logging/docs/audit#system-event)."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#BCM8",
+      "dialog_node": "node_7_1579736742328",
+      "previous_sibling": "node_5_1579736689798"
+    },
+    {
+      "type": "standard",
+      "title": "b9",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "The role of actor of the service account is obsolete. If you need to perform operations as a service account, use the User role of the service account.: https://cloud.google.com/iam/docs/service-accounts#the_service_account_user_role"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#BCM9",
+      "dialog_node": "node_9_1579736800582",
+      "previous_sibling": "node_7_1579736742328"
+    },
+    {
+      "type": "standard",
+      "title": "greeting",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hi there. How can I help you?\n"
+              },
+              {
+                "text": "Hello. How may I assist you today?\n"
+              },
+              {
+                "text": "Hey. What can I help you with?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "@greeting",
+      "dialog_node": "node_9_1579737083109",
+      "previous_sibling": "node_6_1579739009136"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello.  My name is Yassine Zayani and I'm a chatbot here to assist you with your questions about Google Cloud Identity and Access Management. How can I help you?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title"
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "IBM Business Process Manager",
+  "language": "en",
+  "description": ""
+}
